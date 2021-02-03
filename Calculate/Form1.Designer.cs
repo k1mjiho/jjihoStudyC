@@ -47,7 +47,7 @@ namespace Calculate
             this.btn_result = new System.Windows.Forms.Button();
             this.btn_point = new System.Windows.Forms.Button();
             this.btn_0 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_00 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // result
@@ -176,7 +176,7 @@ namespace Calculate
             // 
             // button14
             // 
-            this.button14.Location = new System.Drawing.Point(266, 168);
+            this.button14.Location = new System.Drawing.Point(266, 44);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(58, 118);
             this.button14.TabIndex = 15;
@@ -186,7 +186,7 @@ namespace Calculate
             // 
             // btn_result
             // 
-            this.btn_result.Location = new System.Drawing.Point(268, 44);
+            this.btn_result.Location = new System.Drawing.Point(266, 168);
             this.btn_result.Name = "btn_result";
             this.btn_result.Size = new System.Drawing.Size(58, 118);
             this.btn_result.TabIndex = 17;
@@ -196,7 +196,7 @@ namespace Calculate
             // 
             // btn_point
             // 
-            this.btn_point.Location = new System.Drawing.Point(204, 106);
+            this.btn_point.Location = new System.Drawing.Point(204, 230);
             this.btn_point.Name = "btn_point";
             this.btn_point.Size = new System.Drawing.Size(58, 56);
             this.btn_point.TabIndex = 18;
@@ -205,28 +205,28 @@ namespace Calculate
             // 
             // btn_0
             // 
-            this.btn_0.Location = new System.Drawing.Point(202, 230);
+            this.btn_0.Location = new System.Drawing.Point(204, 106);
             this.btn_0.Name = "btn_0";
             this.btn_0.Size = new System.Drawing.Size(58, 56);
             this.btn_0.TabIndex = 19;
             this.btn_0.Text = "0";
             this.btn_0.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btn_00
             // 
-            this.button1.Location = new System.Drawing.Point(204, 168);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(58, 56);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "00";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_00.Location = new System.Drawing.Point(204, 168);
+            this.btn_00.Name = "btn_00";
+            this.btn_00.Size = new System.Drawing.Size(58, 56);
+            this.btn_00.TabIndex = 20;
+            this.btn_00.Text = "00";
+            this.btn_00.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(336, 300);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_00);
             this.Controls.Add(this.btn_0);
             this.Controls.Add(this.btn_point);
             this.Controls.Add(this.btn_result);
@@ -273,7 +273,7 @@ namespace Calculate
         private System.Windows.Forms.Button btn_result;
         private System.Windows.Forms.Button btn_point;
         private System.Windows.Forms.Button btn_0;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_00;
     }
 }
 

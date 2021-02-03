@@ -34,6 +34,8 @@ namespace Calculate
             btn_7.Click += btn_num_clcik;
             btn_8.Click += btn_num_clcik;
             btn_9.Click += btn_num_clcik;
+            btn_0.Click += btn_num_clcik;
+            btn_00.Click += btn_num_clcik;
             btn_point.Click += btn_num_clcik;
 
             btn_plus.Click += btn_symbol_click1;
@@ -54,14 +56,14 @@ namespace Calculate
 
         private void btn_symbol_click1(object sender, EventArgs e)
         {
-            Console.WriteLine(result.Text);
-            num1 = Double.Parse(result.Text);
-            // 현재 텍스트창에 있는 값 저장
             /// 기호가 뭔지 저장
             Button btn = sender as Button;
             temp = btn.Text;
-            Console.Write(temp);
-            result.Text = "";
+            // 현재 텍스트창에 암것도 없으면 return
+            if (result.Text == "") return;
+            // 현재 텍스트창에 있는 값 저장
+            num1 = Double.Parse(result.Text);
+            result.Text = null;
 
         }
 
@@ -69,9 +71,6 @@ namespace Calculate
         {
             // = 버튼 눌렀을때의 결과
             num2 = Double.Parse(result.Text);
-            Console.Write(num1);
-            Console.Write(temp);
-            Console.Write(num2);
             Calculator cal = new Calculator();
 
             // 그리고서 temp가 무엇인지 확인하기
@@ -81,19 +80,17 @@ namespace Calculate
                     result.Text = cal.plusResult(num1, num2).ToString();
                     break;
                 case "-":
-                    cal.minusResult(num1, num2);
+                    result.Text = cal.minusResult(num1, num2).ToString();
                     break;
                 case "x":
-                    cal.multipleResult(num1, num2);
+                    result.Text = cal.multipleResult(num1, num2).ToString();
                     break;
                 case "/":
-                    cal.divideResult(num1, num2);
+                    result.Text = cal.divideResult(num1, num2).ToString();
                     break;
                 default:
                     break;
             }
-            //  마지막에 다시 temp, num1, num2 초기화
-            cal_clear();
         }
 
         private void button14_Click(object sender, EventArgs e)

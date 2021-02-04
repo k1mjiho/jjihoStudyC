@@ -107,7 +107,7 @@ namespace Calculate
                 case "x":
                     result.Text = cal.multipleResult(num1, num2).ToString();
                     break;
-                case "/":
+                case "÷":
                     result.Text = cal.divideResult(num1, num2).ToString();
                     break;
                 default:

@@ -59,6 +59,7 @@ namespace Calculate
             this.result.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.result.Enabled = false;
             this.result.Font = new System.Drawing.Font("넥슨Lv2고딕", 23F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.result.ForeColor = System.Drawing.SystemColors.WindowText;
             this.result.Location = new System.Drawing.Point(3, 9);
             this.result.Multiline = true;
             this.result.Name = "result";
@@ -221,7 +222,7 @@ namespace Calculate
             this.btn_divide.Name = "btn_divide";
             this.btn_divide.Size = new System.Drawing.Size(58, 56);
             this.btn_divide.TabIndex = 12;
-            this.btn_divide.Text = "/";
+            this.btn_divide.Text = "÷";
             this.btn_divide.UseVisualStyleBackColor = false;
             // 
             // btn_plus
@@ -308,6 +309,7 @@ namespace Calculate
             // 
             this.prev.BackColor = System.Drawing.SystemColors.ControlLight;
             this.prev.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.prev.Enabled = false;
             this.prev.Font = new System.Drawing.Font("넥슨Lv2고딕 Light", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.prev.Location = new System.Drawing.Point(12, 9);
             this.prev.Multiline = true;

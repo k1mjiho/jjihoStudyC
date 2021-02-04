@@ -83,7 +83,10 @@ namespace Calculate
             // 숫자들 보여주기
             prev.Text += num1;
             prev.Text += temp;
-            result.Text = "";
+            result.Text = ""; // 이거 지우고
+            // 첫번째 클릭일때는 num1을 숫자 저장하는게 맞음
+            // 첫번째에서 연산하면 num1 = num1 * num2 가 되는거임
+            // 두번째에서 새로 입력된 값은 num2가 된다 (반복)
         }
 
         private void btn_result_Click(object sender, EventArgs e)

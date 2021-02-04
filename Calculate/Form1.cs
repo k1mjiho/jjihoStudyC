@@ -51,7 +51,12 @@ namespace Calculate
 
             // 버튼 클릭시 해당 버튼값 가져와서 텍스트창에 보여주기
             result.Text += btn.Text;
-
+            // 만약 앞에 02 / 066이라면 0 없애버리기
+            if(result.Text.Length > 1 && result.Text.StartsWith("0"))
+            {
+                if (result.Text.Contains(".")) return;
+                result.Text = result.Text.Remove(0, 1);
+            }
         }
 
         private void btn_symbol_click1(object sender, EventArgs e)
@@ -62,7 +67,9 @@ namespace Calculate
             // 현재 텍스트창에 암것도 없으면 return
             if (result.Text == "") return;
             // 현재 텍스트창에 있는 값 저장
-            num1 = Double.Parse(result.Text);
+            //num1 = Double.Parse(result.Text);
+            Double.TryParse(result.Text, out num1);
+            Console.WriteLine("num1 = {0}", num1);
             result.Text = null;
 
         }

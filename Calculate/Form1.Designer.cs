@@ -302,7 +302,6 @@ namespace Calculate
             this.btn_00.Name = "btn_00";
             this.btn_00.Size = new System.Drawing.Size(58, 56);
             this.btn_00.TabIndex = 20;
-            this.btn_00.Text = "00";
             this.btn_00.UseVisualStyleBackColor = false;
             // 
             // prev

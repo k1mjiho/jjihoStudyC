@@ -13,9 +13,11 @@ namespace Calculate
 {
     public partial class Form1 : Form
     {
-        private Double num1;
-        private Double num2;
+        private Double num1 = 0;
+        private Double num2 = 0;
         private String temp;
+        private String prev_temp;
+        private int cnt;
 
         public Form1()
         {
@@ -77,16 +79,54 @@ namespace Calculate
                 return;
             }
             // 현재 텍스트창에 있는 값 저장
-            //num1 = Double.Parse(result.Text);
-            Double.TryParse(result.Text, out num1);
-            Console.WriteLine("num1 = {0}", num1);
+            if (cnt < 1)
+            {
+                Console.WriteLine("0드러옴 {0} ", cnt);
+                Double.TryParse(result.Text, out num1);
+                prev_temp = temp;
+                prev.Text += num1;
+            }
+            else 
+            {
+                Console.WriteLine("나머지 드러옴 {0}", num2);
+                Double.TryParse(result.Text, out num2);
+                Console.WriteLine("num1 = {0} {2} num2 = {1}", num1, num2, prev_temp);
+                num1 = multi_cal(num1, num2, prev_temp);
+                prev.Text += num2;
+            }
+
             // 숫자들 보여주기
-            prev.Text += num1;
             prev.Text += temp;
             result.Text = ""; // 이거 지우고
+
+            cnt++;
+            prev_temp = temp;
+        }
+
+        private Double multi_cal(Double num1, Double num2, String prev_temp)
+        {
             // 첫번째 클릭일때는 num1을 숫자 저장하는게 맞음
             // 첫번째에서 연산하면 num1 = num1 * num2 가 되는거임
             // 두번째에서 새로 입력된 값은 num2가 된다 (반복)
+            Calculator cal = new Calculator();
+
+            switch (prev_temp)
+            {
+                case "+":
+                    result.Text = cal.plusResult(num1, num2).ToString();
+                    return cal.plusResult(num1, num2);
+                case "-":
+                    result.Text = cal.minusResult(num1, num2).ToString();
+                    return cal.minusResult(num1, num2);
+                case "x":
+                    result.Text = cal.multipleResult(num1, num2).ToString();
+                    return cal.multipleResult(num1, num2);
+                case "÷":
+                    result.Text = cal.divideResult(num1, num2).ToString();
+                    return cal.divideResult(num1, num2);
+                default:
+                    return 0;
+            }
         }
 
         private void btn_result_Click(object sender, EventArgs e)
@@ -131,6 +171,8 @@ namespace Calculate
             num1 = 0;
             num2 = 0;
             temp = null;
+            prev_temp = null;
+            cnt = 0;
         }
 
     }

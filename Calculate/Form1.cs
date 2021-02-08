@@ -13,8 +13,16 @@ namespace Calculate
 {
     public partial class Form1 : Form
     {
-        private Double num1 = 0;
-        private Double num2 = 0;
+        /* 아니 생각해보니까 다중계산할때
+         * x / 있으면 그거 먼저해야되는데 그거안함
+         * 나중에 시간있으면 고쳐보기
+         * 내생각엔 식을 한꺼번에 다 받아서 = 누르면 골라서
+         * 차근차근 계산시켜야할듯 <stack 사용해보기>
+         * 후위연산자 이용해서 해보기
+         */
+
+        private Double num1;
+        private Double num2;
         private String temp;
         private String prev_temp;
         private int cnt;
@@ -37,7 +45,6 @@ namespace Calculate
             btn_8.Click += btn_num_clcik;
             btn_9.Click += btn_num_clcik;
             btn_0.Click += btn_num_clcik;
-            btn_00.Click += btn_num_clcik;
             btn_point.Click += btn_num_clcik;
 
             btn_plus.Click += btn_symbol_click1;
@@ -54,7 +61,7 @@ namespace Calculate
             // 버튼 클릭시 해당 버튼값 가져와서 텍스트창에 보여주기
             result.Text += btn.Text;
             
-            // 만약 앞에 02 / 066이라면 0 없애버리기
+            // 만약 앞에 02 / 066 이라면 0 없애버리기
             if(result.Text.Length > 1 && result.Text.StartsWith("0"))
             {
                 if (result.Text.Contains(".")) return;
@@ -81,14 +88,12 @@ namespace Calculate
             // 현재 텍스트창에 있는 값 저장
             if (cnt < 1)
             {
-                Console.WriteLine("0드러옴 {0} ", cnt);
                 Double.TryParse(result.Text, out num1);
                 prev_temp = temp;
                 prev.Text += num1;
             }
             else 
             {
-                Console.WriteLine("나머지 드러옴 {0}", num2);
                 Double.TryParse(result.Text, out num2);
                 Console.WriteLine("num1 = {0} {2} num2 = {1}", num1, num2, prev_temp);
                 num1 = multi_cal(num1, num2, prev_temp);
@@ -97,7 +102,7 @@ namespace Calculate
 
             // 숫자들 보여주기
             prev.Text += temp;
-            result.Text = ""; // 이거 지우고
+            result.Text = "0"; // 이거 지우고
 
             cnt++;
             prev_temp = temp;
